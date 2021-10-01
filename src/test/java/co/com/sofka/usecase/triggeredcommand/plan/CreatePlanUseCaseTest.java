@@ -10,7 +10,7 @@ import co.com.sofka.travelplan.domain.plan.value.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class CreatePlanUseCase_CommandTest {
+class CreatePlanUseCaseTest {
 
     @Test
     void createPlanTest(){
@@ -26,7 +26,7 @@ class CreatePlanUseCase_CommandTest {
                 new NumberDay(6)
         );
 
-        var useCase = new CreatePlanUseCase_Command();
+        var useCase = new CreatePlanUseCase();
 
         //act
         var events = UseCaseHandler

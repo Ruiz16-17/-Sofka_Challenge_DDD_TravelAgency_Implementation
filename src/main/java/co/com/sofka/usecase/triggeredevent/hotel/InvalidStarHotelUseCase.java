@@ -8,7 +8,7 @@ import co.com.sofka.travelplan.domain.hotel.event.CreatedHotel;
 import co.com.sofka.travelplan.domain.hotel.value.HotelId;
 import co.com.sofka.travelplan.domain.hotel.value.Star;
 
-public class InvalidStarHotelUseCase_Event extends UseCase<TriggeredEvent<CreatedHotel>, ResponseEvents> {
+public class InvalidStarHotelUseCase extends UseCase<TriggeredEvent<CreatedHotel>, ResponseEvents> {
     @Override
     public void executeUseCase(TriggeredEvent<CreatedHotel> createdHotelTriggeredEvent) {
         var event = createdHotelTriggeredEvent.getDomainEvent();

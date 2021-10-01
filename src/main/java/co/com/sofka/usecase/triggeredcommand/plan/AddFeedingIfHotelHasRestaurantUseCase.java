@@ -13,13 +13,14 @@ import co.com.sofka.travelplan.domain.plan.Plan;
 import co.com.sofka.travelplan.domain.plan.command.AddFeeding;
 import co.com.sofka.travelplan.domain.plan.value.*;
 
-public class AddFeedingIfHotelHasRestaurantUseCase_Command extends UseCase<RequestCommand<AddFeeding>, ResponseEvents> {
+public class AddFeedingIfHotelHasRestaurantUseCase extends UseCase<RequestCommand<AddFeeding>, ResponseEvents> {
 
     @Override
     public void executeUseCase(RequestCommand<AddFeeding> addFeedingRequestCommand) {
 
         var command = addFeedingRequestCommand.getCommand();
 
+        //region add hotel offerings
         Hotel hotel = new Hotel(
                 new HotelId(),
                 new Name("Kakslauttanen Arctic Resort"),
@@ -44,7 +45,9 @@ public class AddFeedingIfHotelHasRestaurantUseCase_Command extends UseCase<Reque
                 new Name("gym"),
                 new Description("Buffet menu")
         );
-        
+
+        //endregion
+
         Plan plan;
 
         plan = new Plan(
@@ -56,12 +59,16 @@ public class AddFeedingIfHotelHasRestaurantUseCase_Command extends UseCase<Reque
                 new NumberPeople(4),
                 new NumberDay(6));
 
-        plan.addFeeding(
-                command.getFeedingId(),
-                command.getName(),
-                command.getTimeFeeding()
-        );
+        if(hotel.offeringSet().contains("Restaurant")){
 
-        emit().onResponse(new ResponseEvents(plan.getUncommittedChanges()));
+            plan.addFeeding(
+                    command.getFeedingId(),
+                    command.getName(),
+                    command.getTimeFeeding()
+            );
+
+            emit().onResponse(new ResponseEvents(plan.getUncommittedChanges()));
+        }
+
     }
 }

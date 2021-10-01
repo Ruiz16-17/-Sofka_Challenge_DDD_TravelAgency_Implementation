@@ -8,7 +8,7 @@ import co.com.sofka.travelplan.domain.plan.event.CreatedPlan;
 import co.com.sofka.travelplan.domain.plan.value.PlanId;
 import co.com.sofka.travelplan.domain.plan.value.Price;
 
-public class InvalidPriceCreatePlanUseCase_Event extends UseCase<TriggeredEvent<CreatedPlan>, ResponseEvents> {
+public class InvalidPriceCreatePlanUseCase extends UseCase<TriggeredEvent<CreatedPlan>, ResponseEvents> {
 
     @Override
     public void executeUseCase(TriggeredEvent<CreatedPlan> createdPlanTriggeredEvent) {

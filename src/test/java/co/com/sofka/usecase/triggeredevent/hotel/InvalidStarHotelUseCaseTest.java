@@ -19,7 +19,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
-class InvalidStarHotelUseCase_EventTest {
+class InvalidStarHotelUseCaseTest {
 
     @Mock
     private DomainEventRepository repository;
@@ -36,7 +36,7 @@ class InvalidStarHotelUseCase_EventTest {
         );
 
         event.setAggregateRootId(aggregateId);
-        var useCase = new InvalidStarHotelUseCase_Event();
+        var useCase = new InvalidStarHotelUseCase();
 
         Mockito.when(repository.getEventsBy("hotel-hotel")).thenReturn(eventStored());
         useCase.addRepository(repository);

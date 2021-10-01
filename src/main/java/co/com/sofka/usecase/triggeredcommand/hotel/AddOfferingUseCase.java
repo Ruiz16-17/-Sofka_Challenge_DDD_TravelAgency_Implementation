@@ -6,29 +6,27 @@ import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofka.travelplan.domain.generic.value.Description;
 import co.com.sofka.travelplan.domain.generic.value.Name;
 import co.com.sofka.travelplan.domain.hotel.Hotel;
-import co.com.sofka.travelplan.domain.hotel.command.AddBedroom;
+import co.com.sofka.travelplan.domain.hotel.command.AddOffering;
 import co.com.sofka.travelplan.domain.hotel.value.HotelId;
 import co.com.sofka.travelplan.domain.hotel.value.Star;
 
-public class AddBedroomUseCase extends UseCase<RequestCommand<AddBedroom>, ResponseEvents> {
+public class AddOfferingUseCase extends UseCase<RequestCommand<AddOffering>, ResponseEvents> {
     @Override
-    public void executeUseCase(RequestCommand<AddBedroom> addBedroomRequestCommand) {
+    public void executeUseCase(RequestCommand<AddOffering> addBedroomRequestCommand) {
 
         var command = addBedroomRequestCommand.getCommand();
 
         Hotel hotel = new Hotel(
                 new HotelId(),
-                new Name("Kakslauttanen Arctic Resort"),
+                new Name("Hotel Patagonia"),
                 new Star("4"),
-                new Description("El mejor hotel con vista hacía el cielo de la zona")
+                new Description("Hotel todo incluido con piscina cubierta, cerca de Parque Nacional Torres del Paine")
         );
 
-        hotel.addBedroom(
-                command.getBedroomId(),
+        hotel.addOffering(
+                command.getOfferingId(),
                 command.getName(),
-                command.getDescription(),
-                command.getNumberBedBedroom(),
-                command.getSizeBedroom()
+                command.getDescription()
         );
 
         emit().onResponse(new ResponseEvents(hotel.getUncommittedChanges()));

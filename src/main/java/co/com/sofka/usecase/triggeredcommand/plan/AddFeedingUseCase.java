@@ -9,7 +9,7 @@ import co.com.sofka.travelplan.domain.plan.Plan;
 import co.com.sofka.travelplan.domain.plan.command.AddFeeding;
 import co.com.sofka.travelplan.domain.plan.value.*;
 
-public class AddFeedingUseCase_Command extends UseCase<RequestCommand<AddFeeding>, ResponseEvents> {
+public class AddFeedingUseCase extends UseCase<RequestCommand<AddFeeding>, ResponseEvents> {
 
     @Override
     public void executeUseCase(RequestCommand<AddFeeding> addFeedingRequestCommand) {

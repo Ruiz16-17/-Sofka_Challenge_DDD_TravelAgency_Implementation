@@ -11,7 +11,7 @@ import co.com.sofka.travelplan.domain.hotel.value.Star;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class CreateHotelUseCase_CommandTest {
+class CreateHotelUseCaseTest {
 
     @Test
     void createHotelUseCaseCommandTest(){

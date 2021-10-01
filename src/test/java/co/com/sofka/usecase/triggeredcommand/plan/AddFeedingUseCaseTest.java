@@ -4,7 +4,7 @@ import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.travelplan.domain.generic.value.Name;
 import co.com.sofka.travelplan.domain.plan.command.AddFeeding;
-import co.com.sofka.travelplan.domain.plan.event.UpdatedTimeFeeding;
+import co.com.sofka.travelplan.domain.plan.event.AddedFeeding;
 import co.com.sofka.travelplan.domain.plan.value.FeedingId;
 import co.com.sofka.travelplan.domain.plan.value.PlanId;
 import co.com.sofka.travelplan.domain.plan.value.TimeFeeding;
@@ -13,21 +13,23 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalTime;
 
-class InvalidTimeFeedingTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+class AddFeedingUseCaseTest {
 
     @Test
-    void correctTimeFeedingPlan(){
+    void addFeedingPlan(){
         //arrange
 
         var command = new AddFeeding(
-                PlanId.of("002"),
-                FeedingId.of("1"),
+                new PlanId(),
+                new FeedingId(),
                 new Name("Almuerzo"),
-                new TimeFeeding(LocalTime.of(3,0,0))
+                new TimeFeeding(LocalTime.of(3,23,15))
 
         );
 
-        var useCase = new InvalidTimeFeedingUseCase();
+        var useCase = new AddFeedingUseCase();
 
         //act
         var events = UseCaseHandler
@@ -37,8 +39,8 @@ class InvalidTimeFeedingTest {
                 getDomainEvents();
 
         //assert
-        var event = (UpdatedTimeFeeding) events.get(2);
-        Assertions.assertEquals(LocalTime.of(9,0,0),event.getTimeFeeding().value());
-
+        var event = (AddedFeeding) events.get(1);
+        Assertions.assertEquals("Almuerzo",event.getName().value());
+        Assertions.assertEquals(LocalTime.of(3,23,15),event.getTimeFeeding().value());
     }
 }

@@ -12,7 +12,6 @@ import co.com.sofka.travelplan.domain.plan.value.DestinationPlace;
 import co.com.sofka.travelplan.domain.plan.value.NumberDay;
 import co.com.sofka.travelplan.domain.plan.value.NumberPeople;
 import co.com.sofka.travelplan.domain.plan.value.Price;
-import co.com.sofka.usecase.triggeredevent.plan.InvalidPriceCreatePlanUseCase_Event;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,7 +22,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
-class InvalidPriceCreatePlanUseCase_EventTest {
+class InvalidPriceCreatePlanUseCaseTest {
 
     @Mock
     private DomainEventRepository repository;
@@ -43,7 +42,7 @@ class InvalidPriceCreatePlanUseCase_EventTest {
         );
 
         event.setAggregateRootId(aggregateId);
-        var useCase = new InvalidPriceCreatePlanUseCase_Event();
+        var useCase = new InvalidPriceCreatePlanUseCase();
 
         Mockito.when(repository.getEventsBy("xxx-xxx")).thenReturn(eventStored());
         useCase.addRepository(repository);

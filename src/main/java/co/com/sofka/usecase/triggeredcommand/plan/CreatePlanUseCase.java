@@ -6,7 +6,7 @@ import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofka.travelplan.domain.plan.Plan;
 import co.com.sofka.travelplan.domain.plan.command.CreatePlan;
 
-public class CreatePlanUseCase_Command extends UseCase<RequestCommand<CreatePlan>, ResponseEvents> {
+public class CreatePlanUseCase extends UseCase<RequestCommand<CreatePlan>, ResponseEvents> {
 
     @Override
     public void executeUseCase(RequestCommand<CreatePlan> createPlanRequestCommand) {
