@@ -23,7 +23,7 @@ public class AddFeedingUseCase extends UseCase<RequestCommand<AddFeeding>, Respo
                 new Name("Plan familiar de verano"),
                 new Description("Si quieres pasar un buen rato en familia, este es tu plan....."),
                 new DestinationPlace("Suiza"),
-                new Price(0.0),
+                new Price(2.0),
                 new NumberPeople(4),
                 new NumberDay(6));
 

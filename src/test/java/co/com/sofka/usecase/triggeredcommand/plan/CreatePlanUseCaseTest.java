@@ -21,7 +21,7 @@ class CreatePlanUseCaseTest {
                 new Name("Plan familiar de verano"),
                 new Description("Si quieres pasar un buen rato en familia, este es tu plan....."),
                 new DestinationPlace("Suiza"),
-                new Price(0.0),
+                new Price(200000.0),
                 new NumberPeople(4),
                 new NumberDay(6)
         );
@@ -40,7 +40,7 @@ class CreatePlanUseCaseTest {
         Assertions.assertEquals("Plan familiar de verano",event.getName().value());
         Assertions.assertEquals("Si quieres pasar un buen rato en familia, este es tu plan.....",event.getDescription().value());
         Assertions.assertEquals("Suiza",event.getDestinationPlace().value());
-        Assertions.assertEquals(0.0,event.getPrice().value());
+        Assertions.assertEquals(200000.0,event.getPrice().value());
         Assertions.assertEquals(4,event.getNumberPeople().value());
         Assertions.assertEquals(6,event.getNumberDay().value());
     }

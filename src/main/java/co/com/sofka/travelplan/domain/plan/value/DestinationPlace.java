@@ -11,7 +11,7 @@ public class DestinationPlace implements ValueObject<String> {
     public DestinationPlace(String value) {
         this.value = Objects.requireNonNull(value);
         if(this.value.isBlank()){
-            new IllegalArgumentException("The destination place cannot be blank");
+            throw new IllegalArgumentException("The destination place cannot be blank");
         }
     }
 

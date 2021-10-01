@@ -31,7 +31,7 @@ class InvalidStarHotelUseCaseTest {
         var aggregateId = "hotel-hotel";
         var event = new CreatedHotel(
                 new Name("TreeHouse Villas"),
-                new Star("sd"),
+                new Star("as"),
                 new Description("Hotel frente a la playa en Ko Yao con spa y piscina al aire libre")
         );
 

@@ -11,7 +11,7 @@ public class CityLocation implements ValueObject<String> {
     public CityLocation(String value) {
         this.value =Objects.requireNonNull(value);
         if(this.value.isBlank()){
-            new IllegalArgumentException("The city location cannot be blank");
+            throw new IllegalArgumentException("The city location cannot be blank");
         }
     }
 

@@ -11,7 +11,7 @@ public class Weight implements ValueObject<Float> {
     public Weight(Float value) {
         this.value = Objects.requireNonNull(value);
         if(this.value == 0){
-            new IllegalArgumentException("The weight cannot be 0");
+            throw new IllegalArgumentException("The weight cannot be 0");
         }
     }
 

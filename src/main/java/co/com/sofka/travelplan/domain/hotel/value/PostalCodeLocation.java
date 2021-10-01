@@ -11,7 +11,7 @@ public class PostalCodeLocation implements ValueObject<String> {
     public PostalCodeLocation(String value) {
         this.value = Objects.requireNonNull(value);
         if(this.value.isBlank()){
-            new IllegalArgumentException("The postal code cannot be blank");
+            throw new IllegalArgumentException("The postal code cannot be blank");
         }
     }
 

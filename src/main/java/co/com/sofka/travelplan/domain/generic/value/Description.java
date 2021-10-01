@@ -11,7 +11,7 @@ public class Description implements ValueObject<String> {
     public Description(String value) {
         this.value = Objects.requireNonNull(value);
         if(this.value.isBlank()){
-            new IllegalArgumentException("The name cannot be blank");
+            throw new IllegalArgumentException("The name cannot be blank");
         }
     }
 

@@ -11,7 +11,7 @@ public class Name implements ValueObject<String> {
     public Name(String value) {
         this.value = Objects.requireNonNull(value);
         if(this.value.isBlank()){
-            new IllegalArgumentException("The name cannot be blank");
+            throw new IllegalArgumentException("The name cannot be blank");
         }
     }
 

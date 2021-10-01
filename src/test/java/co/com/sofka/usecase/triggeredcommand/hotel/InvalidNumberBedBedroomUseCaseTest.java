@@ -24,7 +24,7 @@ class InvalidNumberBedBedroomUseCaseTest {
                 new BedroomId(),
                 new Name("PH"),
                 new Description("Para los gustos más excéntricos"),
-                new NumberBedBedroom(-1),
+                new NumberBedBedroom(0),
                 new SizeBedroom(90.9f)
         );
 

@@ -11,7 +11,7 @@ public class SizeBedroom implements ValueObject<Float> {
     public SizeBedroom(Float value) {
         this.value = Objects.requireNonNull(value);
         if(this.value < 0){
-            new IllegalArgumentException("The number of beds cannot be less than 0");
+            throw new IllegalArgumentException("The number of beds cannot be less than 0");
         }
     }
 

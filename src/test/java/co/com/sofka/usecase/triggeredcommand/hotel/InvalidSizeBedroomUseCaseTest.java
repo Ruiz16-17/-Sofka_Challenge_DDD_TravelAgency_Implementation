@@ -22,7 +22,7 @@ class InvalidSizeBedroomUseCaseTest {
         var command = new AddBedroom(
                 new HotelId(),
                 new BedroomId(),
-                new Name(""),
+                new Name("PH"),
                 new Description("Para personas modestas"),
                 new NumberBedBedroom(2),
                 new SizeBedroom(9.9f)

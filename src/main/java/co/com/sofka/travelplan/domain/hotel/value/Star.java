@@ -11,7 +11,7 @@ public class Star implements ValueObject<String> {
     public Star(String value) {
         this.value = Objects.requireNonNull(value);
         if(this.value.isBlank()){
-            new IllegalArgumentException("The city location cannot be blank");
+            throw new IllegalArgumentException("The Stars of the hotel cannot be blank");
         }
     }
 

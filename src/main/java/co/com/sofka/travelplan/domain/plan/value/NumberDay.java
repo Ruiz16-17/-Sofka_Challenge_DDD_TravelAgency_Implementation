@@ -11,7 +11,7 @@ public class NumberDay implements ValueObject<Integer> {
     public NumberDay(Integer value) {
         this.value = Objects.requireNonNull(value);
         if(this.value < 0){
-            new IllegalArgumentException("The number of days cannot be less than 0");
+            throw new IllegalArgumentException("The number of days cannot be less than 0");
         }
     }
 

@@ -11,7 +11,7 @@ public class Price implements ValueObject<Double> {
     public Price(Double value) {
         this.value = Objects.requireNonNull(value);
         if(this.value == 0){
-            new IllegalArgumentException("The price cannot be 0");
+            throw new IllegalArgumentException("The price cannot be 0");
         }
     }
 
