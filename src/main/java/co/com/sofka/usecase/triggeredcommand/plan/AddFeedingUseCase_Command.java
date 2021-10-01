@@ -7,7 +7,6 @@ import co.com.sofka.travelplan.domain.generic.value.Description;
 import co.com.sofka.travelplan.domain.generic.value.Name;
 import co.com.sofka.travelplan.domain.plan.Plan;
 import co.com.sofka.travelplan.domain.plan.command.AddFeeding;
-import co.com.sofka.travelplan.domain.plan.command.CreatePlan;
 import co.com.sofka.travelplan.domain.plan.value.*;
 
 public class AddFeedingUseCase_Command extends UseCase<RequestCommand<AddFeeding>, ResponseEvents> {

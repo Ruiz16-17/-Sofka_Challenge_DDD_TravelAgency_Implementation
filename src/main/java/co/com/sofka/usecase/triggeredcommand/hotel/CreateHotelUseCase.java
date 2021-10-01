@@ -6,7 +6,7 @@ import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofka.travelplan.domain.hotel.Hotel;
 import co.com.sofka.travelplan.domain.hotel.command.CreateHotel;
 
-public class CreateHotelUseCase_Command extends UseCase<RequestCommand<CreateHotel>, ResponseEvents> {
+public class CreateHotelUseCase extends UseCase<RequestCommand<CreateHotel>, ResponseEvents> {
     @Override
     public void executeUseCase(RequestCommand<CreateHotel> createHotelRequestCommand) {
         var command = createHotelRequestCommand.getCommand();

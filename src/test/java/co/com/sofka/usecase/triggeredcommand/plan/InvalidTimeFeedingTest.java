@@ -4,7 +4,6 @@ import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.travelplan.domain.generic.value.Name;
 import co.com.sofka.travelplan.domain.plan.command.AddFeeding;
-import co.com.sofka.travelplan.domain.plan.event.CreatedPlan;
 import co.com.sofka.travelplan.domain.plan.event.UpdatedTimeFeeding;
 import co.com.sofka.travelplan.domain.plan.value.FeedingId;
 import co.com.sofka.travelplan.domain.plan.value.PlanId;
@@ -14,9 +13,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalTime;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class VerifyTimeFeedingTest {
+class InvalidTimeFeedingTest {
 
     @Test
     void correctTimeFeedingPlan(){
@@ -30,7 +27,7 @@ class VerifyTimeFeedingTest {
 
         );
 
-        var useCase = new AddMinimumBreakfast_Command();
+        var useCase = new InvalidTimeFeedingUseCase();
 
         //act
         var events = UseCaseHandler

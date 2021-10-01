@@ -14,7 +14,7 @@ import co.com.sofka.travelplan.domain.plan.value.*;
 import java.time.LocalTime;
 import java.util.Set;
 
-public class AddMinimumBreakfast_Command extends UseCase<RequestCommand<AddFeeding>, ResponseEvents> {
+public class InvalidTimeFeedingUseCase extends UseCase<RequestCommand<AddFeeding>, ResponseEvents> {
 
     @Override
     public void executeUseCase(RequestCommand<AddFeeding> addFeedingRequestCommand) {
@@ -24,7 +24,7 @@ public class AddMinimumBreakfast_Command extends UseCase<RequestCommand<AddFeedi
 
         plan = new Plan(
                 PlanId.of("002"),
-                new Name("Plan mmmmmmmmmmmmmmmm de verano"),
+                new Name("Plan de verano"),
                 new Description("Si quieres pasar un buen rato en familia, este es tu plan....."),
                 new DestinationPlace("Suiza"),
                 new Price(0.0),

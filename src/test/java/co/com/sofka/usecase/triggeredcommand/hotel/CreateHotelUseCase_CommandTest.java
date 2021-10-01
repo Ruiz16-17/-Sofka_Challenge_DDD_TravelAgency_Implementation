@@ -11,8 +11,6 @@ import co.com.sofka.travelplan.domain.hotel.value.Star;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class CreateHotelUseCase_CommandTest {
 
     @Test
@@ -27,7 +25,7 @@ class CreateHotelUseCase_CommandTest {
                 new Description("El hotel mejor ubicado en la zona")
         );
 
-        var useCase = new CreateHotelUseCase_Command();
+        var useCase = new CreateHotelUseCase();
 
         //act
 

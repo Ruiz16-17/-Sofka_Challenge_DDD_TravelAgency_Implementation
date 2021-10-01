@@ -11,7 +11,7 @@ public class Address implements ValueObject<String> {
     public Address(String value) {
         this.value = Objects.requireNonNull(value);
         if(this.value.isBlank()){
-            new IllegalArgumentException("The addres cannot be blank");
+            throw new IllegalArgumentException("The addres cannot be blank");
         }
     }
 
