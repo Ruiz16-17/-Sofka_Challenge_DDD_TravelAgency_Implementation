@@ -10,6 +10,7 @@ public class TimeFeeding implements ValueObject<LocalTime> {
     private final LocalTime value;
 
     public TimeFeeding(LocalTime value) {
+
         this.value = Objects.requireNonNull(value);
     }
 
