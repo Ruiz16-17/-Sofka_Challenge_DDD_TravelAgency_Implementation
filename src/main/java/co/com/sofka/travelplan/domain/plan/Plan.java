@@ -50,47 +50,11 @@ public class Plan extends AggregateEvent<PlanId> {
 
     //region Plan
 
-    public void assingHotel(HotelId hotelId){
-        Objects.requireNonNull(hotelId);
-        appendChange(new AssignedHotel(hotelId)).apply();
-    }
-
-    public void assingFlight(FlightId flightId){
-        Objects.requireNonNull(flightId);
-        appendChange(new AssignedFlight(flightId)).apply();
-    }
-
-    public void assingRecreationId(RecreationId recreationId){
-        Objects.requireNonNull(recreationId);
-        appendChange(new AssignedRecreation(recreationId)).apply();
-    }
 
     public void addFeeding(FeedingId entityId, Name name, TimeFeeding timeFeeding) {
         Objects.requireNonNull(name);
         Objects.requireNonNull(timeFeeding);
         appendChange(new AddedFeeding(entityId, name, timeFeeding)).apply();
-    }
-
-    public void addRecreation(RecreationId entityId, Name name, Description description, Address address) {
-        Objects.requireNonNull(name);
-        Objects.requireNonNull(description);
-        Objects.requireNonNull(address);
-        appendChange(new AddedRecreation(entityId, name, description, address)).apply();
-    }
-
-    public void updateName(Name name){
-        Objects.requireNonNull(name);
-        appendChange(new UpdatedName(name)).apply();
-    }
-
-    public void updateDescription(Description description){
-        Objects.requireNonNull(description);
-        appendChange(new UpdatedDescription(description)).apply();
-    }
-
-    public void updateDestinationPlace(DestinationPlace destinationPlace){
-        Objects.requireNonNull(destinationPlace);
-        appendChange(new UpdatedDestinatioPlace(destinationPlace)).apply();
     }
 
     public void updatePrice(Price price){
@@ -132,11 +96,6 @@ public class Plan extends AggregateEvent<PlanId> {
 
     //region Feeding
 
-    public void updateNameFeeding(FeedingId feedingId, Name name){
-        Objects.requireNonNull(feedingId);
-        Objects.requireNonNull(name);
-        appendChange(new UpdatedNameFeeding(feedingId, name)).apply();
-    }
 
     public void updateTimeFeeding(FeedingId feedingId, TimeFeeding timeFeeding){
         Objects.requireNonNull(feedingId);
@@ -146,42 +105,7 @@ public class Plan extends AggregateEvent<PlanId> {
 
     //endregion
 
-    //region Recreation
 
-    public void updateNameRecreation(RecreationId recreationId, Name name){
-        Objects.requireNonNull(recreationId);
-        Objects.requireNonNull(name);
-        appendChange(new UpdatedNameRecreation(recreationId, name)).apply();
-    }
-
-    public void updateDescriptioRecreation(RecreationId recreationId, Description description){
-        Objects.requireNonNull(recreationId);
-        Objects.requireNonNull(description);
-        appendChange(new UpdatedDescriptioRecreation(recreationId, description)).apply();
-    }
-
-    public void updateAddressRecreation(RecreationId recreationId, Address address){
-        Objects.requireNonNull(recreationId);
-        Objects.requireNonNull(address);
-        appendChange(new UpdatedAddressRecreation(recreationId, address)).apply();
-    }
-
-    //endregion
-
-    //region Flight
-
-    public void assignAirlineId(FlightId flightId, AirlineId airlineId){
-        Objects.requireNonNull(airlineId);
-        appendChange(new AssignedAirlineIdFlight(flightId, airlineId)).apply();
-    }
-
-    public void updateWeightFlight(FlightId flightId, Weight weight){
-        Objects.requireNonNull(flightId);
-        Objects.requireNonNull(weight);
-        appendChange(new UpdatedWeightFlight(flightId, weight)).apply();
-    }
-
-    //endregion
 
     //region Getters
 

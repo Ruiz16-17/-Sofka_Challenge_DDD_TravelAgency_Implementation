@@ -24,14 +24,6 @@ public class PlanChange extends EventChange {
 
         });
 
-        apply((AssignedHotel event) -> {
-            plan.hotelId = event.getHotelId();
-        });
-
-        apply((AssignedFlight event) -> {
-            plan.flightId = event.getFlightId();
-        });
-
         apply((AddedFeeding event) -> {
             var numberOfFeedings = plan.feedingSet().size();
             if (numberOfFeedings == 3){
@@ -46,32 +38,7 @@ public class PlanChange extends EventChange {
 
         });
 
-        apply((AddedRecreation event) -> {
-            var numberOfRecreations = plan.recreationSet().size();
-            if (numberOfRecreations == 3){
-                throw new IllegalArgumentException("You can't add more recreation, you can only have 3");
-            }
 
-            plan.recreationSet.add(new Recreation(
-                    event.getRecreationId(),
-                    event.getName(),
-                    event.getDescription(),
-                    event.getAddress()
-            ));
-
-        });
-
-        apply((UpdatedName event) -> {
-            plan.name = event.getName();
-        });
-
-        apply((UpdatedDescription event) -> {
-            plan.description = event.getDescription();
-        });
-
-        apply((UpdatedDestinatioPlace event) -> {
-            plan.destinationPlace = event.getDestinationPlace();
-        });
 
         apply((UpdatedPrice event) -> {
             plan.price = event.getPrice();
@@ -89,13 +56,6 @@ public class PlanChange extends EventChange {
 
         //region Feeding
 
-        apply((UpdatedNameFeeding event) -> {
-
-            var feeding = plan.getFeedingById(event.getFeedingId())
-                    .orElseThrow(() -> new IllegalArgumentException("Feeding not found"));
-
-            feeding.updateName(event.getName());
-        });
 
         apply((UpdatedTimeFeeding event) -> {
 
@@ -107,33 +67,6 @@ public class PlanChange extends EventChange {
 
         //endregion
 
-        //region Recreation
-
-        apply((UpdatedNameRecreation event) -> {
-
-            var recreation = plan.getRecreationById(event.getRecreationId())
-                    .orElseThrow(() -> new IllegalArgumentException("Recreation  not found"));
-
-            recreation.updateName(event.getName());
-        });
-
-        apply((UpdatedDescriptioRecreation event) -> {
-
-            var recreation = plan.getRecreationById(event.getRecreationId())
-                    .orElseThrow(() -> new IllegalArgumentException("Recreation  not found"));
-
-            recreation.updateDescription(event.getDescription());
-        });
-
-        apply((UpdatedAddressRecreation event) -> {
-
-            var recreation = plan.getRecreationById(event.getRecreationId())
-                    .orElseThrow(() -> new IllegalArgumentException("Recreation not found"));
-
-            recreation.updateAddress(event.getAddress());
-        });
-
-        //endregion
 
     }
 }
