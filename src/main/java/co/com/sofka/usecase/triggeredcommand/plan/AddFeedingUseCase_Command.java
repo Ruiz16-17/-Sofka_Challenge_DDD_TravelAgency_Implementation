@@ -1,4 +1,4 @@
-package co.com.sofka.usecase.triggeredcommand;
+package co.com.sofka.usecase.triggeredcommand.plan;
 
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
@@ -10,34 +10,29 @@ import co.com.sofka.travelplan.domain.plan.command.AddFeeding;
 import co.com.sofka.travelplan.domain.plan.command.CreatePlan;
 import co.com.sofka.travelplan.domain.plan.value.*;
 
-import java.time.LocalTime;
-
-public class AddMinimumBreakfast extends UseCase<RequestCommand<CreatePlan>, ResponseEvents> {
+public class AddFeedingUseCase_Command extends UseCase<RequestCommand<AddFeeding>, ResponseEvents> {
 
     @Override
-    public void executeUseCase(RequestCommand<CreatePlan> addFeedingRequestCommand) {
+    public void executeUseCase(RequestCommand<AddFeeding> addFeedingRequestCommand) {
+
         var command = addFeedingRequestCommand.getCommand();
 
         Plan plan;
 
         plan = new Plan(
-                command.getPlanId(),
+                PlanId.of("002"),
+                new Name("Plan familiar de verano"),
+                new Description("Si quieres pasar un buen rato en familia, este es tu plan....."),
+                new DestinationPlace("Suiza"),
+                new Price(0.0),
+                new NumberPeople(4),
+                new NumberDay(6));
+
+        plan.addFeeding(
+                command.getFeedingId(),
                 command.getName(),
-                command.getDescription(),
-                command.getDestinationPlace(),
-                command.getPrice(),
-                command.getNumberPeople(),
-                command.getNumberDay()
+                command.getTimeFeeding()
         );
-
-        if(plan.feedingSet().size() < 1){
-
-            plan.addFeeding(
-                    new FeedingId(),
-                    new Name("BreakFast"),
-                    new TimeFeeding(LocalTime.of(10,00,00))
-            );
-        }
 
         emit().onResponse(new ResponseEvents(plan.getUncommittedChanges()));
     }

@@ -1,4 +1,4 @@
-package co.com.sofka.usecase.triggeredevent;
+package co.com.sofka.usecase.triggeredevent.plan;
 
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.ResponseEvents;

@@ -1,4 +1,4 @@
-package co.com.sofka.usecase.triggeredcommand;
+package co.com.sofka.usecase.triggeredcommand.plan;
 
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
@@ -7,6 +7,7 @@ import co.com.sofka.travelplan.domain.generic.value.Name;
 import co.com.sofka.travelplan.domain.plan.command.CreatePlan;
 import co.com.sofka.travelplan.domain.plan.event.CreatedPlan;
 import co.com.sofka.travelplan.domain.plan.value.*;
+import co.com.sofka.usecase.triggeredcommand.plan.CreatePlanUseCase_Command;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

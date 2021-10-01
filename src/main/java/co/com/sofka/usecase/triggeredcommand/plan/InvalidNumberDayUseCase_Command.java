@@ -1,12 +1,14 @@
-package co.com.sofka.usecase.triggeredcommand;
+package co.com.sofka.usecase.triggeredcommand.plan;
 
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofka.travelplan.domain.plan.Plan;
 import co.com.sofka.travelplan.domain.plan.command.CreatePlan;
+import co.com.sofka.travelplan.domain.plan.value.NumberDay;
+import co.com.sofka.travelplan.domain.plan.value.NumberPeople;
 
-public class CreatePlanUseCase_Command extends UseCase<RequestCommand<CreatePlan>, ResponseEvents> {
+public class InvalidNumberDayUseCase_Command extends UseCase<RequestCommand<CreatePlan>, ResponseEvents> {
 
     @Override
     public void executeUseCase(RequestCommand<CreatePlan> createPlanRequestCommand) {
@@ -23,6 +25,9 @@ public class CreatePlanUseCase_Command extends UseCase<RequestCommand<CreatePlan
                 command.getNumberDay()
         );
 
-        emit().onResponse(new ResponseEvents(plan.getUncommittedChanges()));
+        if(command.getNumberDay().value() < 4){
+            plan.updateNumberDay(new NumberDay(4));
+            emit().onResponse(new ResponseEvents(plan.getUncommittedChanges()));
+        }
     }
 }

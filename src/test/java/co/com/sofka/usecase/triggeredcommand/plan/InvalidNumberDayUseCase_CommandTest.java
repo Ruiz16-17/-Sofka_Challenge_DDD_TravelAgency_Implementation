@@ -1,19 +1,20 @@
-package co.com.sofka.usecase.triggeredcommand;
+package co.com.sofka.usecase.triggeredcommand.plan;
 
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.travelplan.domain.generic.value.Description;
 import co.com.sofka.travelplan.domain.generic.value.Name;
 import co.com.sofka.travelplan.domain.plan.command.CreatePlan;
-import co.com.sofka.travelplan.domain.plan.event.UpdatedNumberPeople;
+import co.com.sofka.travelplan.domain.plan.event.UpdatedNumberDay;
 import co.com.sofka.travelplan.domain.plan.value.*;
+import co.com.sofka.usecase.triggeredcommand.plan.InvalidNumberDayUseCase_Command;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class InvalidNumberPeopleUseCase_CommandTest {
+class InvalidNumberDayUseCase_CommandTest {
 
     @Test
-    void invalidNumberPeopleHotel(){
+    void invalidNumberDayPlan(){
         //arrange
         var aggregateId = "xxx-xxx";
         var command = new CreatePlan(
@@ -21,25 +22,24 @@ class InvalidNumberPeopleUseCase_CommandTest {
                 new Name("Hotel Decameron"),
                 new Description("Descripción de hotel Decameron"),
                 new DestinationPlace("San Andrés"),
-                new Price(100.0),
-                new NumberPeople(0),
-                new NumberDay(4)
+                new Price(4000000.0),
+                new NumberPeople(1),
+                new NumberDay(0)
         );
 
-        var useCase = new InvalidNumberPeopleUseCase_Command();
+        var useCase = new InvalidNumberDayUseCase_Command();
 
         //act
 
         var events = UseCaseHandler
                 .getInstance()
                 .syncExecutor(useCase, new RequestCommand<>(command))
-                        .orElseThrow()
-                                .getDomainEvents();
+                .orElseThrow()
+                .getDomainEvents();
 
         //assert
 
-        var event = (UpdatedNumberPeople) events.get(1);
-        Assertions.assertEquals(1,event.getNumberPeople().value());
+        var event = (UpdatedNumberDay) events.get(1);
+        Assertions.assertEquals(4,event.getNumberDay().value());
     }
-
 }

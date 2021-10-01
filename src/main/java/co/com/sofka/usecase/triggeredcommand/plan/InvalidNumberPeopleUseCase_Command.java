@@ -1,4 +1,4 @@
-package co.com.sofka.usecase.triggeredcommand;
+package co.com.sofka.usecase.triggeredcommand.plan;
 
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;

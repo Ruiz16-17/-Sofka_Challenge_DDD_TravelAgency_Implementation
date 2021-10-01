@@ -1,4 +1,4 @@
-package co.com.sofka.usecase.triggeredevent;
+package co.com.sofka.usecase.triggeredevent.plan;
 
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
@@ -12,6 +12,7 @@ import co.com.sofka.travelplan.domain.plan.value.DestinationPlace;
 import co.com.sofka.travelplan.domain.plan.value.NumberDay;
 import co.com.sofka.travelplan.domain.plan.value.NumberPeople;
 import co.com.sofka.travelplan.domain.plan.value.Price;
+import co.com.sofka.usecase.triggeredevent.plan.InvalidPriceCreatePlanUseCase_Event;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
