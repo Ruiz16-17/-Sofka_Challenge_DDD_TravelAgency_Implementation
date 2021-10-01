@@ -7,18 +7,17 @@ import co.com.sofka.travelplan.domain.generic.value.Name;
 import co.com.sofka.travelplan.domain.plan.command.CreatePlan;
 import co.com.sofka.travelplan.domain.plan.event.CreatedPlan;
 import co.com.sofka.travelplan.domain.plan.value.*;
-import co.com.sofka.usecase.triggeredcommand.plan.CreatePlanUseCase_Command;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class CreatePlanUseCase_CommandTest {
 
     @Test
-    void createPlanDefaultPriceStage(){
+    void createPlanTest(){
 
         //arrange
         var command = new CreatePlan(
-                PlanId.of("001"),
+                new PlanId(),
                 new Name("Plan familiar de verano"),
                 new Description("Si quieres pasar un buen rato en familia, este es tu plan....."),
                 new DestinationPlace("Suiza"),

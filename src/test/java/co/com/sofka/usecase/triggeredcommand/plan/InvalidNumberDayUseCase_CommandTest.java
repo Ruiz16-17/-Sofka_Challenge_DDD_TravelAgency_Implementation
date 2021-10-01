@@ -19,8 +19,8 @@ class InvalidNumberDayUseCase_CommandTest {
         var aggregateId = "xxx-xxx";
         var command = new CreatePlan(
                 PlanId.of(aggregateId),
-                new Name("Hotel Decameron"),
-                new Description("Descripción de hotel Decameron"),
+                new Name("Plan familiar"),
+                new Description("Este es el plan económico para los viajeros"),
                 new DestinationPlace("San Andrés"),
                 new Price(4000000.0),
                 new NumberPeople(1),

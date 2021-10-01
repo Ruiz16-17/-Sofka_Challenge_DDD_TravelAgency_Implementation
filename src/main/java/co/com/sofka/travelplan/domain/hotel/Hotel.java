@@ -16,7 +16,6 @@ import java.util.Set;
 
 public class Hotel extends AggregateEvent<HotelId> {
 
-    protected co.com.sofka.travelplan.domain.hotel.value.HotelId hotelId;
     protected LocationId locationId;
     protected Set<Bedroom> bedroomSet;
     protected Set<Offering> offeringSet;
@@ -28,9 +27,7 @@ public class Hotel extends AggregateEvent<HotelId> {
 
     public Hotel(HotelId entityId, Name name, Star star, Description description) {
         super(entityId);
-        this.name = name;
-        this.star = star;
-        this.description = description;
+       appendChange(new CreatedHotel(name,star,description)).apply();
     }
 
     private Hotel(HotelId entityId){
@@ -171,10 +168,6 @@ public class Hotel extends AggregateEvent<HotelId> {
     //endregion
 
     //region Getters
-
-    public HotelId HotelId() {
-        return hotelId;
-    }
 
     public LocationId locationId() {
         return locationId;

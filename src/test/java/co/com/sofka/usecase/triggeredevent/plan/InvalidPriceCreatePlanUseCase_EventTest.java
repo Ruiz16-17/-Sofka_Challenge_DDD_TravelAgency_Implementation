@@ -34,8 +34,8 @@ class InvalidPriceCreatePlanUseCase_EventTest {
         //arrange
         var aggregateId = "xxx-xxx";
         var event = new CreatedPlan(
-                new Name("Hotel Decameron"),
-                new Description("Descripción de hotel Decameron"),
+                new Name("Plan familiar"),
+                new Description("Este es el plan económico para los viajeros"),
                 new DestinationPlace("San Andrés"),
                 new Price(10.0),
                 new NumberPeople(3),
@@ -53,8 +53,8 @@ class InvalidPriceCreatePlanUseCase_EventTest {
         var events = UseCaseHandler.getInstance()
                 .setIdentifyExecutor("xxx-xxx")
                 .syncExecutor(useCase, new TriggeredEvent<>(event))
-                .orElseThrow().
-                getDomainEvents();
+                .orElseThrow()
+                .getDomainEvents();
 
         //assert
 
@@ -67,9 +67,9 @@ class InvalidPriceCreatePlanUseCase_EventTest {
     private List<DomainEvent> eventStored() {
 
         var event = new CreatedPlan(
-                new Name("Hotel Decameron"),
-                new Description("Descripción de hotel Decameron"),
-                new DestinationPlace("San Andrés"),
+                new Name("Todo en uno"),
+                new Description("En este paquete podrás viajar con toda tu familia"),
+                new DestinationPlace("Noruega"),
                 new Price(10.0),
                 new NumberPeople(3),
                 new NumberDay(4)
